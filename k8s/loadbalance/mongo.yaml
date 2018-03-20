@@ -1,0 +1,87 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: pv0
+  namespace: kong
+  labels:
+    type: local
+    role: mongo
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/data/v0"
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: datadir-mongo-0
+  namespace: kong
+  labels:
+    role: mongo
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: mongo
+  namespace: kong
+spec:
+  serviceName: "mongo"
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        role: mongo
+        environment: test
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+        - name: mongo
+          image: registry.ckmro.com:1180/library/mongo
+          command:
+            - mongod
+            - "--replSet"
+            - rs0
+            - "--logpath"
+            - "/data/db/mongod.log"
+            - "--wiredTigerCacheSizeGB"
+            - '1'
+          ports:
+            - containerPort: 27017
+          volumeMounts:
+            - name: datadir
+              mountPath: /data/db
+  volumeClaimTemplates:
+  - metadata:
+      name: datadir
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Gi
+
+---
+# Headless service for the StatefulSet members
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo
+  namespace: kong
+  labels:
+    role: mongo
+spec:
+  ports:
+  - name: mongo
+    port: 27017
+    targetPort: 27017
+  clusterIP: None
+  selector:
+    role: mongo

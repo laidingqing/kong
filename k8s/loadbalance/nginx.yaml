@@ -1,0 +1,35 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nginx
+  namespace: gojobs
+  labels:
+     k8s-app: nginx    
+spec:
+  template:
+    metadata:
+      labels:
+        k8s-app: nginx
+        name: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: registry.ckmro.com:1180/library/nginx
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+        - name: harborsecret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+  namespace: gojobs
+spec:
+  selector:
+    k8s-app: nginx
+  ports:
+  - name: http
+    targetPort: 80
+    port: 80

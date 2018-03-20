@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: traefik-route
+  namespace: gojobs
+spec:
+  rules:
+  - host: account.local
+    http:
+      paths:
+      - path:
+        backend:
+          serviceName: account-service
+          servicePort: http
+  - host: nginx.local
+    http:
+      paths:
+      - path:
+        backend:
+          serviceName: nginx
+          servicePort: http
