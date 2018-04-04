@@ -92,9 +92,9 @@ class BasicLayout extends React.PureComponent {
   getPageTitle() {
     const { routerData, location } = this.props;
     const { pathname } = location;
-    let title = 'KeepJobs';
+    let title = 'Kong DataCentric';
     if (routerData[pathname] && routerData[pathname].name) {
-      title = `${routerData[pathname].name} - KeepJobs`;
+      title = `${routerData[pathname].name} - Kong DataCentric`;
     }
     return title;
   }
@@ -207,7 +207,7 @@ class BasicLayout extends React.PureComponent {
             <GlobalFooter
               copyright={
                 <Fragment>
-                  Copyright <Icon type="copyright" /> 2018 KeepJobs出品
+                  Copyright <Icon type="copyright" /> 2018 Kong DataCentric
                 </Fragment>
               }
             />

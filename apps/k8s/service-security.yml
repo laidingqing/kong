@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: security-service
+spec:
+  selector:
+    k8s-app: security-service
+    name: security-service
+  ports:
+    - name: http
+      targetPort: 9081
+      port: 80

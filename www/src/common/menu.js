@@ -1,76 +1,49 @@
 import { isUrl } from '../utils/utils';
 
 const menuData = [{
-  name: 'dashboard',
+  name: '概览',
   icon: 'dashboard',
-  path: 'dashboard',
-  children: [{
-    name: '分析页',
-    path: 'analysis',
-  }, {
-    name: '监控页',
-    path: 'monitor',
-  }, {
-    name: '工作台',
-    path: 'workplace',
-    // hideInMenu: true,
-  }],
+  path: 'dashboard/analysis'
 }, {
-  name: '表单页',
+  name: '数据服务',
   icon: 'form',
   path: 'form',
   children: [{
-    name: '基础表单',
+    name: '数据源定义',
     path: 'basic-form',
   }, {
-    name: '分步表单',
+    name: '计算策略',
     path: 'step-form',
   }, {
-    name: '高级表单',
+    name: '输出与存储',
     authority: 'admin',
     path: 'advanced-form',
   }],
 }, {
-  name: '列表页',
-  icon: 'table',
-  path: 'list',
-  children: [{
-    name: '查询表格',
-    path: 'table-list',
-  }, {
-    name: '标准列表',
-    path: 'basic-list',
-  }, {
-    name: '卡片列表',
-    path: 'card-list',
-  }, {
-    name: '搜索列表',
-    path: 'search',
-    children: [{
-      name: '搜索列表（文章）',
-      path: 'articles',
-    }, {
-      name: '搜索列表（项目）',
-      path: 'projects',
-    }, {
-      name: '搜索列表（应用）',
-      path: 'applications',
-    }],
-  }],
-}, {
-  name: '详情页',
+  name: '审查',
   icon: 'profile',
   path: 'profile',
   children: [{
-    name: '基础详情页',
+    name: '监听器',
     path: 'basic',
   }, {
-    name: '高级详情页',
+    name: '事件',
     path: 'advanced',
     authority: 'admin',
   }],
 }, {
-  name: '结果页',
+  name: '可视化',
+  icon: 'table',
+  path: 'list',
+  children: [{
+    name: '数据表格',
+    path: 'table-list',
+  }, {
+    name: '数据图表',
+    path: 'basic-list',
+  }]
+}, {
+  name: '设置',
   icon: 'check-circle-o',
   path: 'result',
   children: [{
@@ -79,24 +52,6 @@ const menuData = [{
   }, {
     name: '失败',
     path: 'fail',
-  }],
-}, {
-  name: '异常页',
-  icon: 'warning',
-  path: 'exception',
-  children: [{
-    name: '403',
-    path: '403',
-  }, {
-    name: '404',
-    path: '404',
-  }, {
-    name: '500',
-    path: '500',
-  }, {
-    name: '触发异常',
-    path: 'trigger',
-    hideInMenu: true,
   }],
 }, {
   name: '账户',

@@ -1,0 +1,33 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: security-service
+  labels:
+    k8s-app: security-service
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        k8s-app: security-service
+        name: security-service
+    spec:
+      containers:
+      - name: security-service
+        image: registry.ckmro.com:1180/kong/security
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: security-config-volume
+          mountPath: /etc
+        ports:
+        - containerPort: 9081
+          protocol: TCP
+      volumes:
+        - name: security-config-volume
+          configMap:
+            name: security-dev-config
+            items:
+            - key: application.properties
+              path: application.properties
+      imagePullSecrets:
+      - name: ckmro-public-regsecret

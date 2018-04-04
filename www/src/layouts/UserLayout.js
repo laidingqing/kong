@@ -27,9 +27,9 @@ class UserLayout extends React.PureComponent {
   getPageTitle() {
     const { routerData, location } = this.props;
     const { pathname } = location;
-    let title = 'KeepJobs';
+    let title = 'Kong DataCentric';
     if (routerData[pathname] && routerData[pathname].name) {
-      title = `${routerData[pathname].name} - KeepJobs`;
+      title = `${routerData[pathname].name} - Kong DataCentric`;
     }
     return title;
   }

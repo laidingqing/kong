@@ -1,0 +1,59 @@
+{
+  "name": "Twitter",
+  "modelType": "Twitter",
+  "description": {
+    "short": "Reads events from Twitter stream.",
+    "long": "Reads events from Twitter stream.",
+    "learnMore": "http://docs.stratio.com/modules/sparta/0.6/inputs.html#twitter-label"
+  },
+  "icon": {
+    "url": "logo_twitter.png"
+  },
+  "properties": [
+    {
+      "propertyId": "consumerKey",
+      "propertyName": "Consumer key",
+      "propertyType": "text",
+      "regexp": "",
+      "default": "",
+      "required": true,
+      "tooltip": "Twitter's consumer key."
+    },
+    {
+      "propertyId": "consumerSecret",
+      "propertyName": "Consumer secret",
+      "propertyType": "text",
+      "regexp": "",
+      "default": "",
+      "required": true,
+      "tooltip": "Twitter's consumer secret"
+    },
+    {
+      "propertyId": "accessToken",
+      "propertyName": "Access token",
+      "propertyType": "text",
+      "regexp": "",
+      "default": "",
+      "required": true,
+      "tooltip": "Twitter's access token."
+    },
+    {
+      "propertyId": "tokenSecret",
+      "propertyName": "Token secret",
+      "propertyType": "text",
+      "regexp": "",
+      "default": "",
+      "required": true,
+      "tooltip": "Twitter's token secret."
+    },
+    {
+      "propertyId": "termsOfSearch",
+      "propertyName": "Terms of search",
+      "propertyType": "text",
+      "regexp": "",
+      "default": "",
+      "required": false,
+      "tooltip": "It allows to search tweets based on the words of this field. If you don’t use this field, it searches over global trending topics."
+    }
+  ]
+}

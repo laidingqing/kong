@@ -1,0 +1,32 @@
+{
+  "name": "Socket",
+  "modelType": "Socket",
+  "description": {
+    "short": "Reads events from a socket.",
+    "long": "Reads events from a socket.",
+    "learnMore": "http://docs.stratio.com/modules/sparta/0.6/inputs.html#socket-label"
+  },
+  "icon": {
+    "url": "logo_socket.png"
+  },
+  "properties": [
+    {
+      "propertyId": "hostname",
+      "propertyName": "Hostname",
+      "propertyType": "text",
+      "regexp": "((([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(((?![0-9]+$)(?!.*-$)(?!-)[a-zA-Z0-9-]{2,63}))",
+      "default": "",
+      "required": true,
+      "tooltip": "Socket hostname"
+    },
+    {
+      "propertyId": "port",
+      "propertyName": "Port",
+      "propertyType": "text",
+      "regexp": "(0|([1-9]\\d{0,3}|[1-5]\\d{4}|[6][0-5][0-5]([0-2]\\d|[3][0-5])))",
+      "default": "",
+      "required": true,
+      "tooltip": "Socket port"
+    }
+  ]
+}

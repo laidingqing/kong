@@ -1,0 +1,106 @@
+{
+  "name": "MongoDb",
+  "modelType": "MongoDb",
+  "description": {
+    "short": "MongoDB is an open-source document database, and the leading NoSQL database.",
+    "long": "MongoDB is an open-source document database that provides high performance, high availability, and automatic scaling.",
+    "learnMore": "http://docs.stratio.com/modules/sparta/0.6/outputs.html#mongodb-label"
+  },
+  "icon": {
+    "url": "logo_mongodb.png"
+  },
+
+  "properties": [
+    {
+      "propertyId": "hosts",
+      "propertyName": "Hosts",
+      "propertyType": "list",
+      "default": "",
+      "required": true,
+      "tooltip": "This parameter connection routes specified the nodes of a cluster of MongoDB, with different replica set or with sharding.",
+      "fields": [
+        {
+          "propertyId": "hostName",
+          "propertyName": "Host",
+          "propertyType": "text",
+          "regexp": "((([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(((?![0-9]+$)(?!.*-$)(?!-)[a-zA-Z0-9-]{2,63}))",
+          "default": "",
+          "hidden": false,
+          "required": true
+        },
+        {
+          "propertyId": "port",
+          "propertyName": "Port",
+          "propertyType": "number",
+          "regexp": "(0|([1-9]\\d{0,3}|[1-5]\\d{4}|[6][0-5][0-5]([0-2]\\d|[3][0-5])))",
+          "default": "27017",
+          "hidden": false,
+          "required": true
+        }
+      ]
+    },
+    {
+      "propertyId": "dbName",
+      "propertyName": "Database name",
+      "propertyType": "text",
+      "regexp": "",
+      "default": "sparta",
+      "required": false,
+      "tooltip": "The name of the database"
+    },
+    {
+      "propertyId": "connectionsPerHost",
+      "propertyName": "Connections per host",
+      "propertyType": "number",
+      "regexp": "",
+      "default": 5,
+      "required": false,
+      "tooltip": "Number of connections per host"
+    },
+    {
+      "propertyId": "threadsAllowedToBlock",
+      "propertyName": "Threads allowed to block",
+      "propertyType": "number",
+      "regexp": "",
+      "default": 10,
+      "required": false,
+      "tooltip": "This multiplier, multiplied with the connectionsPerHost setting, gives the maximum number of threads that may be waiting for a connection to become available from the pool."
+    },
+    {
+      "propertyId": "idAsField",
+      "propertyName": "Id as field",
+      "propertyType": "boolean",
+      "regexp": "",
+      "default": "false",
+      "required": false,
+      "tooltip": "Is possible to save all fields that compound the unique key as a independent field."
+    },
+    {
+      "propertyId": "textIndexFields",
+      "propertyName": "Text index fields",
+      "propertyType": "text",
+      "regexp": "TODO cualquier cadena de caracteres separada por comas",
+      "default": "",
+      "required": false,
+      "tooltip": "The system is capable of insert data in a full-text index. All of this fields compound the index."
+    },
+    {
+      "propertyId": "language",
+      "propertyName": "Language",
+      "propertyType": "text",
+      "regexp": "",
+      "default": "",
+      "required": false,
+      "tooltip": "Specify the language of the tokenizer in the full-text index in MongoDB, each document inserted must have this key-value."
+    },
+    {
+      "propertyId": "retrySleep",
+      "propertyName": "Retry sleep",
+      "propertyType": "number",
+      "regexp": "",
+      "default": "1000",
+      "required": false,
+      "tooltip": "The number of milliseconds to wait for reconnect with MongoDb nodes when the last client fails. It is recommendable to set less time to the slide interval of the streaming window."
+    }
+  ]
+}
