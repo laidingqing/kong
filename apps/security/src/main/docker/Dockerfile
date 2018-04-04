@@ -1,4 +1,4 @@
-FROM registry.ckmro.com:1180/library/java8-alpine:latest
+FROM 192.168.0.132/library/java8-alpine:latest
 MAINTAINER lai dingqing <laidingqing@gmail.com>
 
 ADD security-1.0.0.jar app.jar
